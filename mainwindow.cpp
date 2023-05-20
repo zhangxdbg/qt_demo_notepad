@@ -24,7 +24,20 @@ void MainWindow::on_new_file_triggered()
 
 void MainWindow::on_open_file_triggered()
 {
+    QString fileName = QFileDialog::getOpenFileName(this, "打开文件");
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly | QFile::Text))
+    {
+        QMessageBox::warning(this, "警告", "无法打开此文件：" + file.errorString());
+        return;
+    }
 
+    m_currentFile = fileName;
+    this->setWindowTitle(fileName);
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->textEdit->setText(text);
+    file.close();
 }
 
 
