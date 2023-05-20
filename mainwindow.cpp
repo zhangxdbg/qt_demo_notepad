@@ -17,7 +17,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_new_file_triggered()
 {
-
+    m_currentFile.clear();
+    ui->textEdit->clear();
 }
 
 
