@@ -134,7 +134,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="undo"/>
-   <addaction name="redo_2"/>
+   <addaction name="redo"/>
   </widget>
   <widget class="QToolBar" name="toolBar_5">
    <property name="windowTitle">
@@ -314,7 +314,7 @@
     <string>Ctrl+Z</string>
    </property>
   </action>
-  <action name="redo_2">
+  <action name="redo">
    <property name="icon">
     <iconset resource="images.qrc">
      <normaloff>:/images/edit_redo.png</normaloff>:/images/edit_redo.png</iconset>
