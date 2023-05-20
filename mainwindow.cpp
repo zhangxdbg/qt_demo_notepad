@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setCentralWidget(ui->textEdit);
 }
 
 MainWindow::~MainWindow()
@@ -56,19 +57,18 @@ void MainWindow::on_copy_triggered()
 }
 
 
-void MainWindow::on_bolder_triggered()
+void MainWindow::on_bolder_triggered(bool checked)
+{
+
+}
+
+void MainWindow::on_italic_triggered(bool checked)
 {
 
 }
 
 
-void MainWindow::on_italic_triggered()
-{
-
-}
-
-
-void MainWindow::on_underline_triggered()
+void MainWindow::on_underline_triggered(bool checked)
 {
 
 }

@@ -30,11 +30,11 @@ private slots:
 
     void on_copy_triggered();
 
-    void on_bolder_triggered();
+    void on_bolder_triggered(bool checked);
 
-    void on_italic_triggered();
+    void on_italic_triggered(bool checked);
 
-    void on_underline_triggered();
+    void on_underline_triggered(bool checked);
 
     void on_font_triggered();
 
