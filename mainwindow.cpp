@@ -98,6 +98,7 @@ void MainWindow::OpenRecentFile()
     file.close();
 
     SaveHistory(m_currentFile);
+    InitMenu();
 }
 
 
@@ -126,6 +127,7 @@ void MainWindow::on_open_file_triggered()
     file.close();
 
     SaveHistory(m_currentFile);
+    InitMenu();
 }
 
 
@@ -152,6 +154,7 @@ void MainWindow::on_save_file_triggered()
     out << text;
     file.close();
     SaveHistory(m_currentFile);
+    InitMenu();
 }
 
 
@@ -173,6 +176,7 @@ void MainWindow::on_save_as_triggered()
     out << text;
     file.close();
     SaveHistory(m_currentFile);
+    InitMenu();
 }
 
 
@@ -258,7 +262,8 @@ void MainWindow::on_print_triggered()
 // 清空历史记录
 void MainWindow::on_clear_history_triggered()
 {
-
+    m_settings->remove("history");
+    InitMenu();
 }
 
 
