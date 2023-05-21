@@ -5,6 +5,17 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QFontDialog>
+
+#if defined(QT_PRINTSUPPORT_LIB)
+#include <QtPrintSupport/qtprintsupportglobal.h>
+#if QT_CONFIG(printer)
+#if QT_CONFIG(printdialog)
+#include <QPrintDialog>
+#endif
+#include <QPrinter>
+#endif
+#endif
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +28,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+#if !QT_CONFIG(printer)
+    ui->print->setEnabled(false);
+#endif
 
 private slots:
     void on_new_file_triggered();

@@ -123,7 +123,9 @@ void MainWindow::on_underline_triggered(bool checked)
 
 void MainWindow::on_font_triggered()
 {
-
+    bool fontSelected;
+    auto font = QFontDialog::getFont(&fontSelected, this);
+    if (fontSelected) ui->textEdit->setFont(font);
 }
 
 
@@ -153,6 +155,13 @@ void MainWindow::on_exit_triggered()
 
 void MainWindow::on_print_triggered()
 {
-
+#if defined(QT_PRINTSUPPORT_LIB) && QT_CONFIG(printer)
+    QPrinter printDev;
+#if QT_CONFIG(printdialog)
+    QPrintDialog dialog(&printDev, this);
+    if (dialog.exec() == QDialog::Rejected) return;
+#endif
+    ui->textEdit->print(&printDev);
+#endif
 }
 
