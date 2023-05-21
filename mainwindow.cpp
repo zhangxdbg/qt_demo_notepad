@@ -88,19 +88,19 @@ void MainWindow::on_save_as_triggered()
 
 void MainWindow::on_paste_triggered()
 {
-
+    ui->textEdit->paste();
 }
 
 
 void MainWindow::on_cut_triggered()
 {
-
+    ui->textEdit->cut();
 }
 
 
 void MainWindow::on_copy_triggered()
 {
-
+    ui->textEdit->copy();
 }
 
 
