@@ -106,18 +106,18 @@ void MainWindow::on_copy_triggered()
 
 void MainWindow::on_bolder_triggered(bool checked)
 {
-
+    ui->textEdit->setFontWeight(checked ? QFont::Bold : QFont::Normal);
 }
 
 void MainWindow::on_italic_triggered(bool checked)
 {
-
+    ui->textEdit->setFontItalic(checked);
 }
 
 
 void MainWindow::on_underline_triggered(bool checked)
 {
-
+    ui->textEdit->setFontUnderline(checked);
 }
 
 
