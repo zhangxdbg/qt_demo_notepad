@@ -131,7 +131,7 @@ void MainWindow::on_font_triggered()
 
 void MainWindow::on_about_triggered()
 {
-
+    QMessageBox::about(this, "这是我的Notepad！", "这是我的Notepad，欢迎学习和使用！");
 }
 
 
@@ -149,7 +149,7 @@ void MainWindow::on_redo_triggered()
 
 void MainWindow::on_exit_triggered()
 {
-
+    QCoreApplication::exit();
 }
 
 
