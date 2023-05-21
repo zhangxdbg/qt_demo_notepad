@@ -135,13 +135,13 @@ void MainWindow::on_about_triggered()
 
 void MainWindow::on_undo_triggered()
 {
-
+    ui->textEdit->undo();
 }
 
 
 void MainWindow::on_redo_triggered()
 {
-
+    ui->textEdit->redo();
 }
 
 
