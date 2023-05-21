@@ -26,8 +26,12 @@ void SaveHistory(QString path)
 {
     // 获取历史记录
     auto list = GetHistory();
+
+    // 去重
+    foreach (auto str, list) {
+        if (str == path) list.removeOne(str);
+    }
     list.append(path);
-    list.toSet().toList();
 
     // 打开开始写入
     m_settings->beginWriteArray("history");
@@ -72,8 +76,9 @@ void MainWindow::InitMenu()
     }
 
     auto list = GetHistory();
-    foreach (auto str, list) {
-        recent->addAction(str, this, &MainWindow::OpenRecentFile);
+    for (int i = list.size() - 1; i >= 0; i--)
+    {
+        recent->addAction(list[i], this, &MainWindow::OpenRecentFile);
     }
 
     if (list.size() > 0)
@@ -82,10 +87,10 @@ void MainWindow::InitMenu()
 
 void MainWindow::OpenRecentFile()
 {
-    QAction* action = (QAction*)this->sender();
+    QAction* action = (QAction*)sender();
     QString fileName = action->text();
     QFile file(fileName);
-    if (file.open(QIODevice::ReadOnly | QFile::Text))
+    if (!file.open(QIODevice::ReadOnly | QFile::Text))
     {
         QMessageBox::warning(this, "警告", "无法打开此文件：" + file.errorString());
         return;
