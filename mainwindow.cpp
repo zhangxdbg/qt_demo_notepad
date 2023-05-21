@@ -68,7 +68,21 @@ void MainWindow::on_save_file_triggered()
 
 void MainWindow::on_save_as_triggered()
 {
+    QString fileName;
+    fileName = QFileDialog::getSaveFileName(this, "另存文件");
+    m_currentFile = fileName;
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QFile::Text))
+    {
+        QMessageBox::warning(this, "警告", "无法保存文件：" + file.errorString());
+        return;
+    }
 
+    setWindowTitle(fileName);
+    QTextStream out(&file);
+    QString text = ui->textEdit->toHtml();
+    out << text;
+    file.close();
 }
 
 
