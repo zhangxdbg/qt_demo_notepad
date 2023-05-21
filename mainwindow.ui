@@ -42,9 +42,15 @@
     <property name="title">
      <string>文件</string>
     </property>
+    <widget class="QMenu" name="recent">
+     <property name="title">
+      <string>最近打开</string>
+     </property>
+    </widget>
     <addaction name="new_file"/>
     <addaction name="open_file"/>
     <addaction name="separator"/>
+    <addaction name="recent"/>
     <addaction name="save_file"/>
     <addaction name="separator"/>
     <addaction name="save_as"/>
@@ -348,6 +354,14 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="clear_history">
+   <property name="text">
+    <string>清楚历史</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+Shift+C</string>
    </property>
   </action>
  </widget>

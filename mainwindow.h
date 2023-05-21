@@ -6,6 +6,10 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <QFontDialog>
+#include <QSettings>
+#include <QList>
+#include <QSet>
+#include <QDebug>
 
 #if defined(QT_PRINTSUPPORT_LIB)
 #include <QtPrintSupport/qtprintsupportglobal.h>
@@ -31,6 +35,10 @@ public:
 #if !QT_CONFIG(printer)
     ui->print->setEnabled(false);
 #endif
+
+private:
+    void InitMenu();
+    void OpenRecentFile();
 
 private slots:
     void on_new_file_triggered();
@@ -65,8 +73,11 @@ private slots:
 
     void on_print_triggered();
 
+    void on_clear_history_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString m_currentFile;
+
 };
 #endif // MAINWINDOW_H
